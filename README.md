@@ -1,4 +1,2 @@
 fromHTMLtoXML_InDesignFlavour
 =============================
-
-ariston
