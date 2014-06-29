@@ -9,8 +9,8 @@ import re, sys
 
 # FUNCTIONS
 
-def clean_linebreaks(html):
-  clean = re.sub(r'(?<!>)\n+',' ', html)
+def clean_linebreaks(xml):
+  clean = re.sub(r'(?<!>)\n+',' ', xml)
   return clean
 
 # TEST
@@ -18,5 +18,5 @@ def clean_linebreaks(html):
 if __name__ == '__main__':
   src = str(sys.argv[1])
   f = open(src, 'r+')
-  html = f.read()
-  print clean_linebreaks(html)
+  xml = f.read()
+  print clean_linebreaks(xml)
