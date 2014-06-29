@@ -37,6 +37,7 @@ def main():
   # ...
 
   return cleanXml
+  
 
 # TEST
 
