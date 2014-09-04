@@ -9,7 +9,7 @@ import sys, re
 # FUNCTIONS
 
 def format_fn(xml):
-	soup = BeautifulSoup(xml, 'xml')
+	soup = BeautifulSoup(xml)
 
 	# Iterate through footnotes
 	for i, fn in enumerate(soup.find_all('a', id=re.compile("footnote*."))):
@@ -18,11 +18,12 @@ def format_fn(xml):
 		fn_content = fn_content.text[:-1]
 		fn.replace_with("[[NOTE]]" + fn_content + "[[NOTE]]")
 
-	#clean footnotes from xml?
-	fn_old = soup.find_all('p', id=re.compile("footnote*."))[0]
-	# remove h3, ol, li, p
-	fn_old.parent.parent.previousSibling.previousSibling.extract()
-	fn_old.parent.parent.extract()
+	#clean footnotes from xml
+	if soup.find_all('p', id=re.compile("footnote*.")):
+		fn_old = soup.find_all('p', id=re.compile("footnote*."))[0]
+		# remove h3, ol, li, p
+		fn_old.parent.parent.previousSibling.previousSibling.extract()
+		fn_old.parent.parent.extract()
 
 	return soup
 

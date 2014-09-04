@@ -5,9 +5,10 @@
 
 import sys
 from bs4 import BeautifulSoup
-from BeautifulSoup import BeautifulStoneSoup
+#from BeautifulSoup import BeautifulStoneSoup
 
 from clean_lb import clean_linebreaks
+from footnotes import format_fn
 
 # FUNCTIONS
 
@@ -32,11 +33,14 @@ def main():
     xml = str(soup)
 
   # do stuff
-  cleanXml = clean_linebreaks(xml)
 
-  # ...
+  # clean linebreaks
+  xml = clean_linebreaks(xml)
 
-  return cleanXml
+  # format footnotes
+  xml = format_fn(xml)
+
+  return xml
 
 # TEST
 
