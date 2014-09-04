@@ -3,15 +3,12 @@ from HTML to XML – InDesign flavour
 
 ## To do
 * ~~inserire tabella in html [R]~~
-* ~~script note al [piede](http://www.indiscripts.com/post/2010/04/refoot-convert-markup-text-into-indesign-footnotes "Title") [S]~~
-* ~~aggiungere script per tabelle [R]~~
-* rendere eseguibile lo script per le tabelle [R]
+* ~~script note al [piede](http://www.indiscripts.com/post/2010/04/refoot-convert-markup-text-into-indesign-footnotes "Title")~~
+* ~~aggiungere script per tabelle~~
+* rendere eseguibile lo script per le tabelle
 * inserire script per tabelle nel main [R]
-<<<<<<< HEAD
 * cercare due .doc da inserire nelle sources
-=======
-* aggiustare e rendere eseguibile script note [S]
->>>>>>> 523e0453091c8910b1c0f363cc03ff0681bf5910
+* aggiustare e rendere eseguibile script note
 
 
 ## Abstract
