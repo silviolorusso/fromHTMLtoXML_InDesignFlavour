@@ -4,7 +4,10 @@
 # MODULES
 
 import sys
-import xml.etree.ElementTree as ET
+from bs4 import BeautifulSoup
+from BeautifulSoup import BeautifulStoneSoup
+
+from clean_lb import clean_linebreaks
 
 # FUNCTIONS
 
@@ -15,11 +18,27 @@ def main():
   except IndexError:
     print '\nNo file provided. Usage: main.py filename\n'
     return
-  # is it possible to parse html with ElementTree???
-  tree = ET.parse(src)
-  return tree
+  f = open(src, 'r+')
+  html = f.read()
+  # if there's a body, extract its content, otherwise use it as it is
+  soup = BeautifulSoup(html)
+  body = ''
+  if soup.body:
+    # a bit annoying that you loose indents and you get comments
+    for t in soup.body.contents:
+      body += str(t)
+      xml = body
+  else:
+    xml = str(soup)
+
+  # do stuff
+  cleanXml = clean_linebreaks(xml)
+
+  # ...
+
+  return cleanXml
 
 # TEST
 
 if __name__ == '__main__':
-   main() 
+  print(main()) 
