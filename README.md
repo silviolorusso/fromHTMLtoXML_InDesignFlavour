@@ -6,6 +6,8 @@ from HTML to XML – InDesign flavour
 * ~~script note al [piede](http://www.indiscripts.com/post/2010/04/refoot-convert-markup-text-into-indesign-footnotes "Title") [S]~~
 * ~~aggiungere script per tabelle [R]~~
 * rendere eseguibile lo script per le tabelle [R]
+* inserire script per tabelle nel main [R]
+* 
 
 
 ## Abstract
