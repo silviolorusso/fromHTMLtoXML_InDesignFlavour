@@ -7,7 +7,7 @@ from HTML to XML – InDesign flavour
 * ~~aggiungere script per tabelle [R]~~
 * rendere eseguibile lo script per le tabelle [R]
 * inserire script per tabelle nel main [R]
-* 
+* aggiustare e rendere eseguibile script note [S]
 
 
 ## Abstract
