@@ -1,27 +1,35 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-#############
-# footnotes #
-#############
+# MODULES
 
-### Apertura librerie
 from bs4 import BeautifulSoup
-import sys
+import sys, re
 
-### Variabili
-input_file = 'cap03 copia.xml'
+# FUNCTIONS
 
-tree_doc = open(input_file, 'r').read()
-soup = BeautifulSoup(tree_doc, 'xml')
+def format_fn(xml):
+	soup = BeautifulSoup(xml, 'xml')
 
-# Iterazioni sulle note sparse per il testo
-for i, SUP in enumerate(soup.find_all('SUP')):
+	# Iterate through footnotes
+	for i, fn in enumerate(soup.find_all('a', id=re.compile("footnote*."))):
+		fn_content = soup.find_all('p', id=re.compile("footnote*."))[i];
+		# clean fn back link (↵) by deleting last char
+		fn_content = fn_content.text[:-1]
+		fn.replace_with("[[NOTE]]" + fn_content + "[[NOTE]]")
 
+	#clean footnotes from xml?
+	fn_old = soup.find_all('p', id=re.compile("footnote*."))[0]
+	# remove h3, ol, li, p
+	fn_old.parent.parent.previousSibling.previousSibling.extract()
+	fn_old.parent.parent.extract()
 
-	nota = soup.find_all('DIV', ID = 'sdfootnote'+ SUP.string)
-	contenuto_nota = nota[0].text.replace('\t', '').replace('\n', '')
-	#print contenuto_nota.encode('utf-8')
+	return soup
 
-	SUP.replace_with("'AWSEDRFTGY'" + contenuto_nota + "'YGTFRDESWA'")
+# TEST
 
-print soup
+if __name__ == '__main__':
+  src = str(sys.argv[1])
+  f = open(src, 'r+')
+  xml = f.read()
+  print format_fn(xml)
