@@ -12,9 +12,9 @@ from HTML to XML – InDesign flavour
 
 
 ## Abstract
-Questa repository raccoglie una serie di strumenti/script utili a tradurre HTML verso XML in modo che sia formattato secondo i dettami Adobe.
+This repository includes a series of tools/scripts meant to translate HTML to XML, formatted according Adobe Indesign standards. 
 
-Al momento il processo supporta i seguenti tag
+Currently the process supports the following tags:
 
 * `<h*>`
 * `<p>`
@@ -26,13 +26,18 @@ Al momento il processo supporta i seguenti tag
 * `<b>` and `<strong>`
 * `<i>` and `<em>`
 
-
 ## Getting started
-* Install [Python](https://www.python.org/)
-* install [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/)
-* download/fork the repository
-* get InDesign
 
-## Sources
+* Install [pip](https://pypi.python.org/pypi/pip): `sudo easy_install pip`
+* Install [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/): `pip install beautifulsoup4`
+* Install [InDesign](http://www.adobe.com/it/products/indesign.html)
+* Copy the `ReFoot_mod.js` script into InDesign
 
 ## Step by step
+
+* Open the terminal and go to the repository folder
+* Do `python main.py [yourfile.html] > [yourfile.xml]` (in this case use /sources/mager.html)
+*  import `[yourfile.xml]` into InDesign: from point 4 of [this guide](http://digitalpublishingtoolkit.org/2014/05/import-html-into-indesign-via-xml/)
+* Run the `ReFoot_mod.js` script
+
+## Sources
