@@ -22,7 +22,7 @@
 var SCRIPT_NAME = "ReFoot 1.0b";
 
 var FOOTNOTE_PATTERNS = {
-	"[[NOTE]]note[[NOTE]]" : "\[\[NOTE]]((?:(?!\[\[NOTE]]).)*)\[\[NOTE]]",
+	"-fn--NOTE--fn-" : "-fn--(.*?)--fn-",
 	"<footnote>NOTE</footnote>" : "<footnote>([^<]+)</footnote>",
 	"<note>NOTE</note>" : "<note>([^<]+)</note>",
 	"<NOTE>" : "<([^>]+)>",

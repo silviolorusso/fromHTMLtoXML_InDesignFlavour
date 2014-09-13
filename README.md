@@ -2,6 +2,8 @@ from HTML to XML – InDesign flavour
 =============================
 
 ## To do
+* fix tags in footnotes, encoding problem
+* check main.py that should keep only the body
 * ~~inserire tabella in html~~
 * ~~script note al [piede](http://www.indiscripts.com/post/2010/04/refoot-convert-markup-text-into-indesign-footnotes "Title")~~
 * ~~aggiungere script per tabelle~~

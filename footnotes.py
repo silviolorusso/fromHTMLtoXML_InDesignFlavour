@@ -11,19 +11,24 @@ import sys, re
 def format_fn(xml):
 	soup = BeautifulSoup(xml)
 
-	# Iterate through footnotes
-	for i, fn in enumerate(soup.find_all('a', id=re.compile("footnote*."))):
-		fn_content = soup.find_all('p', id=re.compile("footnote*."))[i];
-		# clean fn back link (↵) by deleting last char
-		fn_content = fn_content.text[:-1]
-		fn.replace_with("[[NOTE]]" + fn_content + "[[NOTE]]")
+	if soup.find_all('li', id=re.compile("fn*.")):
+		# Iterate through footnotes
+		for i, fn in enumerate(soup.find_all('a', id=re.compile("fnref*."))):
+			fn_content = soup.find_all('li', id=re.compile("fn*."))[i];
+			# clean fn back link (↵)
+			fn_content = fn_content.contents[0]
+			# remove surrounding <p>?
+			fn_content.find('a', href=re.compile("#fnref*.")).extract()
+			# encoding problem with <
+			fn_content = str(fn_content)
+			fn.replace_with("-fn--" + fn_content + "--fn-")
 
-	#clean footnotes from xml
-	if soup.find_all('p', id=re.compile("footnote*.")):
-		fn_old = soup.find_all('p', id=re.compile("footnote*."))[0]
-		# remove h3, ol, li, p
-		fn_old.parent.parent.previousSibling.previousSibling.extract()
-		fn_old.parent.parent.extract()
+		#clean footnotes from xml
+		fns = soup.find('div', { "class" : "footnotes" })
+		fns.extract()
+		# remove footnotes title
+		fns_title = soup.find('h2', id="notes")
+		fns_title.extract()
 
 	return soup
 
