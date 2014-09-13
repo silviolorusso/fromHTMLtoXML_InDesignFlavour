@@ -21,7 +21,7 @@ def format_fn(xml):
 			fn_content.find('a', href=re.compile("#fnref*.")).extract()
 			# encoding problem with <
 			fn_content = str(fn_content)
-			fn.replace_with("-fn--" + fn_content + "--fn-")
+			fn.replace_with("-fn--" + fn_content + "--fn-") # to fit the requirements of ReFoot_mod.js
 
 		#clean footnotes from xml
 		fns = soup.find('div', { "class" : "footnotes" })
