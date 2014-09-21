@@ -7,13 +7,13 @@ from HTML to XML – InDesign flavour
 * ~~inserire tabella in html~~
 * ~~script note al [piede](http://www.indiscripts.com/post/2010/04/refoot-convert-markup-text-into-indesign-footnotes "Title")~~
 * ~~aggiungere script per tabelle~~
-* rendere eseguibile lo script per le tabelle
-* inserire script per tabelle nel main [R]
+* ~~rendere eseguibile lo script per le tabelle~~
+* ~~inserire script per tabelle nel main [R]~~
 * cercare due .doc da inserire nelle sources
 * ~~aggiustare e rendere eseguibile script note (problema regex still there)~~
 
 
-## Abstract
+## Abstract
 This repository includes a series of tools/scripts meant to translate HTML to XML, formatted according Adobe Indesign standards. 
 
 Currently the process supports the following tags:
