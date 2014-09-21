@@ -38,7 +38,7 @@ Currently the process supports the following tags:
 ## Step by step
 
 * Open the terminal and go to the repository folder
-* Run `python HTMLtoXML.py [yourfile.html]` (in this case use /sources/mager.html)
+* Run `python HTMLtoXML.py [yourfile.html]`
 * Import `[yourfile.xml]` into InDesign: from point 4 of [this guide](http://digitalpublishingtoolkit.org/2014/05/import-html-into-indesign-via-xml/)
 * Run the `ReFoot_mod.js` script
 
