@@ -9,6 +9,7 @@
 import re
 import sys
 from bs4 import BeautifulSoup
+import HTMLParser
 
 
 ### Functions
@@ -42,15 +43,15 @@ def convert_footnotes(xml_soup):
 		for index_footnote, each_footnote in enumerate(footnotes):
 			footnote_content = xml_soup.find_all('li', id=re.compile("fn*."))[index_footnote];
 			
-			# clean fn back link (↵)
-			footnote_content = footnote_content.contents[0]
-			
-			# remove surrounding <p>?
-			footnote_content.find('a', href=re.compile("#fnref*.")).extract()
+			# clean footnote
+			footnote_content = footnote_content.contents[0] # clear fn back link (↵)
+			footnote_content.find('a', href=re.compile("#fnref*.")).extract() # remove link
 
-			# encoding problem with <
-			footnote_content = str(footnote_content)
-			each_footnote.replace_with("-fn--" + footnote_content + "--fn-") # to fit the requirements of ReFoot_mod.js
+			# replace footnote content
+			each_footnote.insert_before("-fn--") # to fit the requirements of ReFoot_mod.js
+			each_footnote.insert_after("--fn-")  # to fit the requirements of ReFoot_mod.js
+			each_footnote.replace_with(footnote_content) #remove surrounding <p>?
+
 
 		# clean footnotes from xml
 		footnotes = xml_soup.find('div', { "class" : "footnotes" })
@@ -212,7 +213,11 @@ def convert_HTMLtable_to_XMLCALStable(xml_soup, table_width = 300):
 
 def main():
 	# Terminal input
-	source_path = str(sys.argv[1])
+	try:
+		source_path = str(sys.argv[1])
+	except IndexError:
+		print '\nNo file provided.\nUsage: python HTMLtoXML.py [yourfile.html]\n'
+		return
 
 	# Reading html file
 	html_file = open(source_path, 'r+')
