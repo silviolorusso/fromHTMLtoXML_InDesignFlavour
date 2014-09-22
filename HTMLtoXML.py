@@ -13,9 +13,6 @@ import HTMLParser
 
 
 ### Functions
-def delete_head_tags(xml_soup):
-	toDelete = ["doctype", "html", "head", "title", "base", "link", "meta", "style", "script", "noscript"]
-
 def clean_linebreaks(html_string):
 	"""Return an html string..."""
 
