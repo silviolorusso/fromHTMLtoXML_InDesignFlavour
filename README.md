@@ -31,6 +31,7 @@ Currently the process supports the following tags:
 ## Getting started
 
 * Install [pip](https://pypi.python.org/pypi/pip): `sudo easy_install pip`
+* Install lxml: `sudo pip install lxml`
 * Install [Beautiful Soup](http://www.crummy.com/software/BeautifulSoup/): `sudo pip install beautifulsoup4`
 * Install [InDesign](http://www.adobe.com/it/products/indesign.html)
 * Copy the `ReFoot_mod.js` script into InDesign
